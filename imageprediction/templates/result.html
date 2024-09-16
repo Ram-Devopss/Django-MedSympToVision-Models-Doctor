@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Prediction Result</title>
+  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+   
+  <link rel="stylesheet" href="{% static 'css/aboutus.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .result-container {
+      margin-top: 50px;
+    }
+    .result-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .result-card .card-body {
+      padding: 40px;
+    }
+    .result-info {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .result-info p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .result-info span {
+      font-weight: bold;
+    }
+    .uploaded-image {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<header class="border-bottom mb-4 pb-3">
+  {% block header %}
+  {% include 'header.html' %}
+  {% endblock %}
+</header>
+<body>
+
+<div class="container-fluid result-container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card result-card">
+        <div class="card-body">
+          <h5 class="card-title text-center mb-4">Image Prediction Result</h5>
+          <div class="result-info">
+            <p>Probability: <span>{{ probability }}</span></p>
+            <p>Disease: <span>{{ predicted_disease }}</span></p>
+            <p><img src="{% static 'image' %}{{ uploaded_file_url }}" alt="Uploaded Image" class="img-fluid uploaded-image"></p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col text-center">
+              {% block footer %}
+              {% include 'footer.html' %}
+              {% endblock %}
+          </div>
+      </div>
+  </div>
+</footer>
+</html>

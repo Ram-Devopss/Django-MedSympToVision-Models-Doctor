@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSymptoVision</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+ 
+
+    <link rel="stylesheet" href="{% static 'css/aboutus.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+    <header class="border-bottom mb-4 pb-3">
+        {% block header %}
+        {% include 'header.html' %}
+        {% endblock %}
+    </header>
+
+    <div class="container-top">
+     
+              <div class="card-body">
+               
+                <h3 class="card-title text-center">Hi There👋</h3>
+                <h1 class="animated-text">Welcome to MedSymptoVision</h1>
+                <p class="text-left" id="timeid" style="color: gray;">smal</p>
+                <p class="text-right" id="greeting" style="color: gray;"></p>
+                <hr>
+                <br>
+                <br>
+                <div style="text-align: center;">
+                    <button class="btn btn-success mt-3"><a style="color: white;" href="/aboutus/"> Explore </a></button>
+                </div>
+                
+              </div>
+        
+      </div>
+ 
+
+ 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var hour = time.getHours();
+        
+        if(hour <= 12)
+        {
+            document.getElementById("greeting").innerText= "Good Morning";
+        }
+        else if(hour <= 15)
+        {
+            document.getElementById("greeting").innerText= "Good Afternoon";
+    
+        }
+        else if(hour < 18)
+        {
+            document.getElementById("greeting").innerText= "Good Evening";
+    
+        }
+        else
+        {
+            document.getElementById("greeting").innerText= "Good Night";
+    
+        }
+        
+    </script>
+       <script>
+        var time = new Date();
+        var date = time.getDate();
+        var month = time.getMonth();
+        var year = time.getFullYear()
+    
+        document.getElementById('timeid').innerText = date+"/"+month+"/"+year;
+        console.log("im started")
+    
+    
+    </script>
+</body>
+<footer class="bg-dark text-light py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                {% block footer %}
+                {% include 'footer.html' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

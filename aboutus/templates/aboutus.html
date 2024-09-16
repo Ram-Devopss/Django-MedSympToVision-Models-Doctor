@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ABOUTUS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aboutus.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .column, .ver {
+          width: 50%;
+          padding: 70px;
+          text-align: justify;
+          font-weight: 500;
+          font-size: x-large;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .column {
+          float: left;
+        }
+
+        .ver {
+          float: right;
+          color: aliceblue;
+        }
+
+        .row::after, .her::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+  
+ 
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <label class="logo">MedSymptoVision</label>
+        <ul>
+            <li><a href="/home/">Home</a></li>
+            <li><a href="/image/">Image Prediction</a></li>
+            <li><a href="/symptomprediction/">Symptom Prediction</a></li>
+            <li><a class="active" href="/aboutus/">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <div class="column">
+            <img src="{% static 'css/about.jfif' %}" width="400px" height="300px">
+        </div>
+        <div class="column">
+            <p>Welcome to MedSymptoVision, where we're revolutionizing healthcare with cutting-edge technology. Our mission is to empower individuals and healthcare professionals with advanced tools for early disease detection and personalized medical insights.</p>
+        </div>
+    </div>
+    <div class="hor">
+        <div class="ver">
+            <img src="{% static 'css/vision.jfif' %}" width="400px" height="300px"><br>
+        </div>
+        <div class="ver">
+            <p>At MedSymptoVision, we understand the challenges that individuals face when it comes to healthcare access and disease diagnosis. That's why we've developed a state-of-the-art Disease Prediction System that leverages Symptom Identification and Image Processing techniques, powered by Random Forest and Decision Tree algorithms within the Django framework.</p>
+        </div>
+
+  
+  
+</body>
+<footer class="bg-dark text-light py-4 mt-5">
+    <div class="container-fluid">
+        <div class="row push-right">
+            <div class="col text-center">
+                {% block footer %}
+                {% include 'footer.html' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

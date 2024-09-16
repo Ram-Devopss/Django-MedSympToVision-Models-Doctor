@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Upload Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+ 
+<link rel="stylesheet" href="{% static 'css/aboutus.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+</head>
+
+
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+} */
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-upload {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-upload:hover {
+    background-color: #45a049;
+}
+
+
+</style>
+
+<header class="border-bottom mb-4 pb-3">
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+</header>
+<body>
+    
+<div class="container">
+    <h2 class="mt-5">Image Upload Form</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group mt-4">
+            <label for="image">Choose an image:</label>
+            <input type="file" class="form-control-file" name="image" id="image"/>
+        </div>
+        <button type="submit" class="btn btn-success btn-upload">Upload</button>
+    </form>
+</div>
+
+<footer class="bg-dark text-light py-4 mt-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                {% block footer %}
+                {% include 'footer.html' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
